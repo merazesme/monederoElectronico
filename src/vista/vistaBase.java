@@ -33,7 +33,7 @@ public class vistaBase extends javax.swing.JFrame {
         btnCargos = new javax.swing.JButton();
         btnAbonos = new javax.swing.JButton();
         btnCliente = new javax.swing.JButton();
-        btnProductos = new javax.swing.JButton();
+        btnEmpleados = new javax.swing.JButton();
         btnRegalo = new javax.swing.JButton();
         panelBase = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -49,21 +49,19 @@ public class vistaBase extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 114));
 
-        btnCargos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Check_50px_1.png"))); // NOI18N
+        btnCargos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Withdrawal_Limit_50px.png"))); // NOI18N
         btnCargos.setBorderPainted(false);
         btnCargos.setContentAreaFilled(false);
         btnCargos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCargos.setFocusPainted(false);
-        btnCargos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Check_45px.png"))); // NOI18N
-        btnCargos.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Check_45px.png"))); // NOI18N
-        btnCargos.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Check_45px.png"))); // NOI18N
+        btnCargos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Withdrawal_Limit_45px.png"))); // NOI18N
 
-        btnAbonos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Cash_in_Hand_50px.png"))); // NOI18N
+        btnAbonos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Request_Money_50px_1.png"))); // NOI18N
         btnAbonos.setBorderPainted(false);
         btnAbonos.setContentAreaFilled(false);
         btnAbonos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAbonos.setFocusPainted(false);
-        btnAbonos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Cash_in_Hand_45px.png"))); // NOI18N
+        btnAbonos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Request_Money_45px.png"))); // NOI18N
 
         btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Customer_50px.png"))); // NOI18N
         btnCliente.setBorderPainted(false);
@@ -72,18 +70,19 @@ public class vistaBase extends javax.swing.JFrame {
         btnCliente.setFocusPainted(false);
         btnCliente.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Customer_45px.png"))); // NOI18N
 
-        btnProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Product_50px.png"))); // NOI18N
-        btnProductos.setBorderPainted(false);
-        btnProductos.setContentAreaFilled(false);
-        btnProductos.setFocusPainted(false);
-        btnProductos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Product_45px.png"))); // NOI18N
+        btnEmpleados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Name_Tag_50px.png"))); // NOI18N
+        btnEmpleados.setBorderPainted(false);
+        btnEmpleados.setContentAreaFilled(false);
+        btnEmpleados.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEmpleados.setFocusPainted(false);
+        btnEmpleados.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Name_Tag_45px.png"))); // NOI18N
 
-        btnRegalo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Gift_50px.png"))); // NOI18N
+        btnRegalo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Product_50px.png"))); // NOI18N
         btnRegalo.setBorderPainted(false);
         btnRegalo.setContentAreaFilled(false);
         btnRegalo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegalo.setFocusPainted(false);
-        btnRegalo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Gift_45px.png"))); // NOI18N
+        btnRegalo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Product_45px.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -97,7 +96,7 @@ public class vistaBase extends javax.swing.JFrame {
                 .addGap(78, 78, 78)
                 .addComponent(btnCliente)
                 .addGap(78, 78, 78)
-                .addComponent(btnProductos)
+                .addComponent(btnEmpleados)
                 .addGap(78, 78, 78)
                 .addComponent(btnRegalo)
                 .addGap(50, 50, 50))
@@ -107,7 +106,7 @@ public class vistaBase extends javax.swing.JFrame {
             .addComponent(btnCargos)
             .addComponent(btnAbonos)
             .addComponent(btnCliente)
-            .addComponent(btnProductos)
+            .addComponent(btnEmpleados)
             .addComponent(btnRegalo)
         );
 
@@ -229,7 +228,7 @@ public class vistaBase extends javax.swing.JFrame {
     public javax.swing.JButton btnAbonos;
     public javax.swing.JButton btnCargos;
     public javax.swing.JButton btnCliente;
-    public javax.swing.JButton btnProductos;
+    public javax.swing.JButton btnEmpleados;
     public javax.swing.JButton btnRegalo;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
