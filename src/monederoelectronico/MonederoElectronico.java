@@ -9,6 +9,7 @@ import controlador.CambiaPanel;
 import controlador.controlBase;
 import controlador.controlLogin;
 import javax.swing.ImageIcon;
+import modelo.ModeloLogin;
 import vista.vistaBase;
 import vista.vistaLogin;
 
@@ -26,7 +27,8 @@ public class MonederoElectronico {
         vistaBase vista = new vistaBase();
         vistaLogin vistaLogin = new vistaLogin();
         controlBase control = new controlBase(vista);
-        controlLogin controlLogin = new controlLogin(vistaLogin);
+         ModeloLogin modelo = new ModeloLogin();
+        controlLogin controlLogin = new controlLogin(vistaLogin, modelo);
         control.iniciarVista();
         CambiaPanel cambio = new CambiaPanel(vista.panelBase, vistaLogin);
         controlLogin.iniciarVista();

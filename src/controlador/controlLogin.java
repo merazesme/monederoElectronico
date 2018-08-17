@@ -7,6 +7,8 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+import modelo.ModeloLogin;
 import vista.vistaBase;
 import vista.vistaLogin;
 
@@ -17,11 +19,16 @@ import vista.vistaLogin;
 public class controlLogin implements ActionListener{
     
     vistaLogin vista;
+    private ModeloLogin modelo;
     
-    public controlLogin(vistaLogin vista)
+    public controlLogin(vistaLogin vista, ModeloLogin modelo)
     {
         this.vista=vista;
-        this.vista.btnEntrar.addActionListener(this);
+        this.modelo = modelo;
+        this.vista.entrar.addActionListener(this);
+        this.vista.texto_usuario.addActionListener(this);
+        this.vista.texto_contraseña.addActionListener(this);
+        this.vista.entrar.addActionListener(this);
     }
     public void iniciarVista()
     {
@@ -31,16 +38,33 @@ public class controlLogin implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        if(this.vista.btnEntrar == e.getSource())
+        String usu = vista.texto_usuario.getText();
+        String contra = new String(vista.texto_contraseña.getPassword());
+        
+        if(this.vista.entrar == e.getSource() || this.vista.texto_usuario == e.getSource() || vista.texto_contraseña == e.getSource())
         {
-            vistaBase vistaBase = new vistaBase();
-            controlBase controlBase = new controlBase(vistaBase);
-            controlBase.iniciarVista();
-            vistaBase.btnAbonos.setEnabled(true);
-            vistaBase.btnCargos.setEnabled(true);
-            vistaBase.btnCliente.setEnabled(true);
-            vistaBase.btnEmpleados.setEnabled(true);
-            vistaBase.btnRegalo.setEnabled(true);
+            switch (modelo.ingresar(usu, contra))
+            {
+                case 1:
+                    vistaBase vistaBase = new vistaBase();
+                    controlBase controlBase = new controlBase(vistaBase);
+                    controlBase.iniciarVista();
+                    vistaBase.btnAbonos.setEnabled(true);
+                    vistaBase.btnCargos.setEnabled(true);
+                    vistaBase.btnCliente.setEnabled(true);
+                    vistaBase.btnEmpleados.setEnabled(true);
+                    vistaBase.btnRegalo.setEnabled(true);
+                    break;
+                case 2:
+                    //Aqui nada nel pastel
+                    break;
+                case 3:
+                    JOptionPane.showMessageDialog(null,"USUARIO/CONTRASEÑA INCORRECTOS");
+                    break;
+                default:
+
+                    break;
+            }
         }
     }
 }
