@@ -11,6 +11,7 @@ import vista.vistaAbonos;
 import vista.vistaBase;
 import vista.vistaCargos;
 import vista.vistaClientes;
+import vista.vistaEmpleados;
 import vista.vistaPremios;
 import vista.vistaProductos;
 
@@ -25,7 +26,7 @@ public class controlBase implements ActionListener{
     vistaAbonos vistaAbonos = new vistaAbonos();
     vistaClientes vistaClientes = new vistaClientes();
     vistaPremios vistaPremios = new vistaPremios();
-    vistaProductos vistaProductos = new vistaProductos();
+    vistaEmpleados vistaEmpleados = new vistaEmpleados();
     
     public controlBase(vistaBase vista)
     {
@@ -33,7 +34,7 @@ public class controlBase implements ActionListener{
         this.vista.btnCargos.addActionListener(this);
         this.vista.btnAbonos.addActionListener(this);
         this.vista.btnCliente.addActionListener(this);
-        this.vista.btnProductos.addActionListener(this);
+        this.vista.btnEmpleados.addActionListener(this);
         this.vista.btnRegalo.addActionListener(this);
     }
     
@@ -41,6 +42,12 @@ public class controlBase implements ActionListener{
     {
         this.vista.setVisible(true);
         this.vista.setLocationRelativeTo(null);
+        this.vista.btnAbonos.setEnabled(false);
+        this.vista.btnCargos.setEnabled(false);
+        this.vista.btnCliente.setEnabled(false);
+        this.vista.btnEmpleados.setEnabled(false);
+        this.vista.btnRegalo.setEnabled(false);
+
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -69,11 +76,11 @@ public class controlBase implements ActionListener{
             controlPremios controlPremios = new controlPremios(vistaPremios);
             controlPremios.iniciarVista();
         }
-        if(vista.btnProductos == e.getSource())
+        if(vista.btnEmpleados == e.getSource())
         {
-            CambiaPanel cambio = new CambiaPanel(vista.panelBase, vistaProductos);
-            controlProductos controlProductos = new controlProductos(vistaProductos);
-            controlProductos.iniciarVista();
+            CambiaPanel cambio = new CambiaPanel(vista.panelBase, vistaEmpleados);
+            controlEmpleados controlEmpleados = new controlEmpleados(vistaEmpleados);
+            controlEmpleados.iniciarVista();
         }
     }
     
