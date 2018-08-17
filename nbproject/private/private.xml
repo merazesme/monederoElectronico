@@ -6,7 +6,11 @@
         <group/>
 =======
         <group>
-            <file>file:/C:/Users/Esmeralda%20Meraz%20Soto/Documents/GitHub2/monederoElectronico/src/controlador/CambiaPanel.java</file>
+            <file>file:/C:/Users/Esmeralda%20Meraz%20Soto/Documents/GitHub2/monederoElectronico/src/monederoelectronico/MonederoElectronico.java</file>
+            <file>file:/C:/Users/Esmeralda%20Meraz%20Soto/Documents/GitHub2/monederoElectronico/src/controlador/controlLogin.java</file>
+            <file>file:/C:/Users/Esmeralda%20Meraz%20Soto/Documents/GitHub2/monederoElectronico/src/controlador/controlBase.java</file>
+            <file>file:/C:/Users/Esmeralda%20Meraz%20Soto/Documents/GitHub2/monederoElectronico/src/vista/vistaLogin.java</file>
+            <file>file:/C:/Users/Esmeralda%20Meraz%20Soto/Documents/GitHub2/monederoElectronico/src/vista/vistaAbonos.java</file>
         </group>
 >>>>>>> 754888e8f48b55dad529fd1c30d66e5cc9c6635b
     </open-files>

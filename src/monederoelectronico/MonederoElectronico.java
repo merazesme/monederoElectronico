@@ -5,9 +5,12 @@
  */
 package monederoelectronico;
 
+import controlador.CambiaPanel;
 import controlador.controlBase;
+import controlador.controlLogin;
 import javax.swing.ImageIcon;
 import vista.vistaBase;
+import vista.vistaLogin;
 
 /**
  *
@@ -21,8 +24,13 @@ public class MonederoElectronico {
     public static void main(String[] args) {
         // TODO code application logic here
         vistaBase vista = new vistaBase();
+        vistaLogin vistaLogin = new vistaLogin();
         controlBase control = new controlBase(vista);
+        controlLogin controlLogin = new controlLogin(vistaLogin);
         control.iniciarVista();
+        CambiaPanel cambio = new CambiaPanel(vista.panelBase, vistaLogin);
+        controlLogin.iniciarVista();
+        
 //        vista.setIconImage(new ImageIcon("../imagenes/logo100px.png").getImage());
     }
     
