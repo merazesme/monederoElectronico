@@ -7,6 +7,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import modelo.modeloAbonos;
 import vista.vistaAbonos;
 import vista.vistaBase;
 import vista.vistaCargos;
@@ -61,7 +62,8 @@ public class controlBase implements ActionListener{
         if(vista.btnAbonos == e.getSource())
         {
             CambiaPanel cambio = new CambiaPanel(vista.panelBase, vistaAbonos);
-            controlAbonos controlAbonos = new controlAbonos(vistaAbonos);
+            modeloAbonos modeloAbonos = new modeloAbonos();
+            controlAbonos controlAbonos = new controlAbonos(vistaAbonos, modeloAbonos);
             controlAbonos.iniciarVista();
         }
         if(vista.btnCliente == e.getSource())

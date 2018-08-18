@@ -30,21 +30,21 @@ public class vistaAbonos extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txt_Numcliente = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        btnFinalizar = new javax.swing.JButton();
+        btn_Abonar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txt_NumTicket = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel12 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txt_Importe = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        jlb_Puntos = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
-        btnFinalizar1 = new javax.swing.JButton();
+        btn_Movimientos = new javax.swing.JButton();
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(524, 419));
@@ -62,20 +62,24 @@ public class vistaAbonos extends javax.swing.JPanel {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Sucursal no. #");
 
-        jTextField1.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(51, 51, 51));
-        jTextField1.setText("589");
-        jTextField1.setBorder(null);
+        txt_Numcliente.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        txt_Numcliente.setForeground(new java.awt.Color(51, 51, 51));
+        txt_Numcliente.setBorder(null);
 
-        btnFinalizar.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
-        btnFinalizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Card_Payment_40px.png"))); // NOI18N
-        btnFinalizar.setText("Abonar");
-        btnFinalizar.setBorderPainted(false);
-        btnFinalizar.setContentAreaFilled(false);
-        btnFinalizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnFinalizar.setDefaultCapable(false);
-        btnFinalizar.setFocusPainted(false);
-        btnFinalizar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Card_Payment_35px.png"))); // NOI18N
+        btn_Abonar.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
+        btn_Abonar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Card_Payment_40px.png"))); // NOI18N
+        btn_Abonar.setText("Abonar");
+        btn_Abonar.setBorderPainted(false);
+        btn_Abonar.setContentAreaFilled(false);
+        btn_Abonar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_Abonar.setDefaultCapable(false);
+        btn_Abonar.setFocusPainted(false);
+        btn_Abonar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Card_Payment_35px.png"))); // NOI18N
+        btn_Abonar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AbonarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 153, 153));
@@ -86,13 +90,12 @@ public class vistaAbonos extends javax.swing.JPanel {
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel10.setText("No. ticket");
 
-        jTextField2.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(51, 51, 51));
-        jTextField2.setText("3131516515");
-        jTextField2.setBorder(null);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txt_NumTicket.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        txt_NumTicket.setForeground(new java.awt.Color(51, 51, 51));
+        txt_NumTicket.setBorder(null);
+        txt_NumTicket.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txt_NumTicketActionPerformed(evt);
             }
         });
 
@@ -101,13 +104,12 @@ public class vistaAbonos extends javax.swing.JPanel {
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel12.setText("Importe");
 
-        jTextField4.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(51, 51, 51));
-        jTextField4.setText("650.00");
-        jTextField4.setBorder(null);
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        txt_Importe.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        txt_Importe.setForeground(new java.awt.Color(51, 51, 51));
+        txt_Importe.setBorder(null);
+        txt_Importe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                txt_ImporteActionPerformed(evt);
             }
         });
 
@@ -121,25 +123,29 @@ public class vistaAbonos extends javax.swing.JPanel {
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel13.setText("Hora: 00:00");
 
-        jLabel14.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel14.setText("150");
+        jlb_Puntos.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        jlb_Puntos.setForeground(new java.awt.Color(51, 51, 51));
+        jlb_Puntos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         jLabel15.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(51, 51, 51));
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel15.setText("Puntos generados");
 
-        btnFinalizar1.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
-        btnFinalizar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Ledger_45px.png"))); // NOI18N
-        btnFinalizar1.setText("Movimientos");
-        btnFinalizar1.setBorderPainted(false);
-        btnFinalizar1.setContentAreaFilled(false);
-        btnFinalizar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnFinalizar1.setDefaultCapable(false);
-        btnFinalizar1.setFocusPainted(false);
-        btnFinalizar1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Ledger_40px.png"))); // NOI18N
+        btn_Movimientos.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
+        btn_Movimientos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Ledger_45px.png"))); // NOI18N
+        btn_Movimientos.setText("Movimientos");
+        btn_Movimientos.setBorderPainted(false);
+        btn_Movimientos.setContentAreaFilled(false);
+        btn_Movimientos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_Movimientos.setDefaultCapable(false);
+        btn_Movimientos.setFocusPainted(false);
+        btn_Movimientos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Ledger_40px.png"))); // NOI18N
+        btn_Movimientos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_MovimientosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -162,9 +168,9 @@ public class vistaAbonos extends javax.swing.JPanel {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(82, 82, 82))
-                                .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txt_Numcliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_NumTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(185, 185, 185)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,16 +180,16 @@ public class vistaAbonos extends javax.swing.JPanel {
                                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(82, 82, 82))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jlb_Puntos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txt_Importe, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(144, 144, 144)
-                        .addComponent(btnFinalizar1)
+                        .addComponent(btn_Movimientos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnFinalizar)))
+                        .addComponent(btn_Abonar)))
                 .addGap(30, 30, 30))
         );
         jPanel1Layout.setVerticalGroup(
@@ -194,64 +200,71 @@ public class vistaAbonos extends javax.swing.JPanel {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_Numcliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_NumTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_Importe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel14)))
+                        .addComponent(jlb_Puntos)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(110, 110, 110)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(22, Short.MAX_VALUE))
+                        .addContainerGap(23, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnFinalizar)
-                            .addComponent(btnFinalizar1))
+                            .addComponent(btn_Abonar)
+                            .addComponent(btn_Movimientos))
                         .addGap(49, 49, 49))))
         );
 
         add(jPanel1);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txt_NumTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NumTicketActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txt_NumTicketActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void txt_ImporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ImporteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_txt_ImporteActionPerformed
+
+    private void btn_MovimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MovimientosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_MovimientosActionPerformed
+
+    private void btn_AbonarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AbonarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_AbonarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnFinalizar;
-    public javax.swing.JButton btnFinalizar1;
+    public javax.swing.JButton btn_Abonar;
+    public javax.swing.JButton btn_Movimientos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -259,8 +272,9 @@ public class vistaAbonos extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
+    public javax.swing.JLabel jlb_Puntos;
+    public javax.swing.JTextField txt_Importe;
+    public javax.swing.JTextField txt_NumTicket;
+    public javax.swing.JTextField txt_Numcliente;
     // End of variables declaration//GEN-END:variables
 }
