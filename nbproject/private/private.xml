@@ -3,7 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/CHAFI/Documents/NetBeansProjects/monederoElectronico/src/modelo/ConexionBD.java</file>
+            <file>file:/C:/Users/ITZEL/Documents/Upsin/6-Cuatrimestre/BD%20Distribuidas/monederoElectronico/src/vista/vistaCargos.java</file>
+            <file>file:/C:/Users/ITZEL/Documents/Upsin/6-Cuatrimestre/BD%20Distribuidas/monederoElectronico/src/modelo/modeloCargos.java</file>
+            <file>file:/C:/Users/ITZEL/Documents/Upsin/6-Cuatrimestre/BD%20Distribuidas/monederoElectronico/src/modelo/modeloMovimientosCargo.java</file>
+            <file>file:/C:/Users/ITZEL/Documents/Upsin/6-Cuatrimestre/BD%20Distribuidas/monederoElectronico/src/controlador/controlCargos.java</file>
+            <file>file:/C:/Users/ITZEL/Documents/Upsin/6-Cuatrimestre/BD%20Distribuidas/monederoElectronico/src/controlador/controladorMovimientosCargo.java</file>
+            <file>file:/C:/Users/ITZEL/Documents/Upsin/6-Cuatrimestre/BD%20Distribuidas/monederoElectronico/src/vista/vistaMovimientosCargo.java</file>
         </group>
     </open-files>
 </project-private>

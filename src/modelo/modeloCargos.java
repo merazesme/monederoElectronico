@@ -35,7 +35,7 @@ public class modeloCargos {
             try{
                 //Ejecuta la consulta
                 ResultSet rs = s.executeQuery("SELECT idPremios as ID, nombre as 'Nombre del Poroducto', Puntos, "
-                        + "inventario.idInventario from premios "
+                        + "inventario.idInventario, inventario.cantidad as 'Cantidad' from premios "
                         + "INNER JOIN inventario ON inventario.Premios_idPremios = premios.idPremios "
                         + "WHERE inventario.Sucursal_idSucursal = " + idS);
                 //Para establecer el modelo al JTable
@@ -97,15 +97,13 @@ public class modeloCargos {
     public boolean hacerCargo(String fecha, String idC, String idE, String idI, int puntos){
         PreparedStatement updateTransaccion1 = null;
         PreparedStatement updateTransaccion2 = null;
+        PreparedStatement updateTransaccion3 = null;
         
-        System.out.println("fecha: "+fecha);
-        System.out.println("INSERT INTO `cargo`(`Fecha`, `Cliente_idCliente`, `Empleado_idEmpleado`, "
-                + "`Inventario_idInventario`) VALUES "
-                + "("+fecha+","+idC+","+idE+","+idI+")");
         String consultaCargo="INSERT INTO `cargo`(`Fecha`, `Cliente_idCliente`, `Empleado_idEmpleado`, "
                 + "`Inventario_idInventario`) VALUES "
                 + "('"+fecha+"',"+idC+","+idE+","+idI+")";
         String consultaCliente="UPDATE `cliente` SET `Puntos`=`Puntos`-"+puntos+" WHERE `idCliente` = "+idC+";";
+        String consultaInventario="UPDATE `inventario` SET `cantidad`=`cantidad`-1 WHERE `idInventario` = "+idI+";";
         
         Connection con = null;
         try
@@ -114,10 +112,12 @@ public class modeloCargos {
             con.setAutoCommit(false);
             updateTransaccion1 = con.prepareStatement(consultaCargo);
             updateTransaccion2 = con.prepareStatement(consultaCliente);
-           
+            updateTransaccion3 = con.prepareStatement(consultaInventario);
+            
             int r1=updateTransaccion1.executeUpdate(); 
             int r2=updateTransaccion2.executeUpdate(); 
-            if(r1 == 0 || r2 == 0)
+            int r3=updateTransaccion3.executeUpdate(); 
+            if(r1 == 0 || r2 == 0 || r3==0)
                 throw new SQLException("No se ha guardado el movimiento");
            
             con.commit();

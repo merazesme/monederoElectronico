@@ -24,11 +24,13 @@ public class MonederoElectronico {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        vistaBase vista = new vistaBase();
-        vistaLogin vistaLogin = new vistaLogin();
+        vistaBase vista = new vistaBase();        
         controlBase control = new controlBase(vista);
-         ModeloLogin modelo = new ModeloLogin();
+        
+        ModeloLogin modelo = new ModeloLogin();
+        vistaLogin vistaLogin = new vistaLogin();
         controlLogin controlLogin = new controlLogin(vistaLogin, modelo);
+        
         control.iniciarVista();
         CambiaPanel cambio = new CambiaPanel(vista.panelBase, vistaLogin);
         controlLogin.iniciarVista();
