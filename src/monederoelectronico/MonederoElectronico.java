@@ -28,7 +28,10 @@ public class MonederoElectronico {
         vistaLogin vistaLogin = new vistaLogin();
         controlBase control = new controlBase(vista, 0);
          ModeloLogin modelo = new ModeloLogin();
+         
+        
         controlLogin controlLogin = new controlLogin(vistaLogin, modelo);
+        
         control.iniciarVista();
         CambiaPanel cambio = new CambiaPanel(vista.panelBase, vistaLogin);
         controlLogin.iniciarVista();
