@@ -7,6 +7,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import modelo.ModeloLogin;
 import vista.elegirsucursal;
 import vista.vistaLogin;
 
@@ -86,8 +87,9 @@ public class controlElegirSucursal implements ActionListener{
             {  
                 vista.setVisible(false);
                 vistaLogin lo = new vistaLogin();
-//                modelologin mode = new modelologin();
-                controlLogin control2 = new controlLogin(lo);
+//              modelologin mode = new modelologin();
+                ModeloLogin modelologin = new ModeloLogin();
+                controlLogin control2 = new controlLogin(lo,modelologin);
                 control2.iniciarVista();
             }  
             else 
