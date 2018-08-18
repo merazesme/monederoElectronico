@@ -43,27 +43,21 @@ public class controlLogin implements ActionListener{
         
         if(this.vista.entrar == e.getSource() || this.vista.texto_usuario == e.getSource() || vista.texto_contraseña == e.getSource())
         {
-            switch (modelo.ingresar(usu, contra))
-            {
-                case 1:
+            String [] resultado = new String [2];
+            resultado = modelo.ingresar(usu, contra);
+            if(resultado[0].equals("1")) {
                     vistaBase vistaBase = new vistaBase();
-                    controlBase controlBase = new controlBase(vistaBase);
+                    controlBase controlBase = new controlBase(vistaBase, Integer.parseInt(resultado[1]));
                     controlBase.iniciarVista();
                     vistaBase.btnAbonos.setEnabled(true);
                     vistaBase.btnCargos.setEnabled(true);
                     vistaBase.btnCliente.setEnabled(true);
                     vistaBase.btnEmpleados.setEnabled(true);
                     vistaBase.btnRegalo.setEnabled(true);
-                    break;
-                case 2:
-                    //Aqui nada nel pastel
-                    break;
-                case 3:
-                    JOptionPane.showMessageDialog(null,"USUARIO/CONTRASEÑA INCORRECTOS");
-                    break;
-                default:
-
-                    break;
+            }
+            else if(resultado[0].equals("3"))
+            {
+                JOptionPane.showMessageDialog(null,"USUARIO/CONTRASEÑA INCORRECTOS");
             }
         }
     }

@@ -26,7 +26,7 @@ public class MonederoElectronico {
         // TODO code application logic here
         vistaBase vista = new vistaBase();
         vistaLogin vistaLogin = new vistaLogin();
-        controlBase control = new controlBase(vista);
+        controlBase control = new controlBase(vista, 0);
          ModeloLogin modelo = new ModeloLogin();
         controlLogin controlLogin = new controlLogin(vistaLogin, modelo);
         control.iniciarVista();
