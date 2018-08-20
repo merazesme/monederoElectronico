@@ -18,9 +18,12 @@ import javax.swing.JOptionPane;
 public class ModeloLogin {
     private ConexionBD conexion = new ConexionBD();
       
-      public int ingresar(String usu, String contra)
+      public String[] ingresar(String usu, String contra)
     {
-        String capturar="";
+        String[] capturar= new String [2];
+        capturar[0]="3";
+        capturar[1]="";
+        
         int control=0;
         ResultSet sql;       
          try {
@@ -32,35 +35,35 @@ public class ModeloLogin {
             while(sql.next())
             {
                 //Lo adquirido de la consukta se pasa a una variable de tipo string llamada captura
-                capturar = sql.getString("Tipo");
+                capturar[0] = sql.getString("Tipo");
+                capturar[1] = sql.getString("Sucursal_idSucursal");
             }
             //Se compara el tipo de usuario
-            if(capturar.equals("Empleado"))
+            if(capturar[0].equals("Empleado"))
             {
                 //Se retorna un 1 si captura es Administrador
-                control = 1;
+                capturar[0] = "1";
             }
-            if(capturar.equals("Administrador"))
+            else if(capturar[0].equals("Administrador"))
             {
                 //Se retorna un 2 si captura es Usuario
-                control = 2;
+                capturar[0] = "2";
             }
-            if((!capturar.equals("Administrador")) && (!capturar.equals("Empleado")))
+            else if((!capturar[0].equals("Administrador")) && (!capturar[0].equals("Empleado")))
             {
                 //Se retorna un 3 si no es nignuno de los dos
-                control = 3;
+                capturar[0] = "3";
             }
            conexion.cerrarConexion(con);
         }
         catch (SQLException ex)
         {
-            //AQUI COMENTE LO DE REGISTRAR
-           // Logger.getLogger(modeloRegistrar.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, "Error al intentar conectar con la base de datos.");
         }
          catch(NullPointerException e){
              //Arroja un mensaje 
             JOptionPane.showMessageDialog(null, "Error al intentar conectar con el servidor.");
         }
-         return control;
+        return capturar;
     }
 }
