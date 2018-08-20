@@ -7,6 +7,8 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import modelo.ModeloLogin;
 import vista.vistaBase;
@@ -33,6 +35,10 @@ public class controlLogin implements ActionListener{
     public void iniciarVista()
     {
         this.vista.setVisible(true);
+        Date fecha = new Date(); 
+        //Fecha y hora
+        vista.fecha.setText(new SimpleDateFormat("dd/MM/yyyy").format(fecha));
+        Hora hora =  new Hora(vista.hora);
     }
 
     @Override
@@ -54,6 +60,8 @@ public class controlLogin implements ActionListener{
                     vistaBase.btnCliente.setEnabled(true);
                     vistaBase.btnEmpleados.setEnabled(true);
                     vistaBase.btnRegalo.setEnabled(true);
+                    this.vista.setVisible(false);
+                    
                     break;
                 case 2:
                     //Aqui nada nel pastel
