@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import modelo.ModeloLogin;
 import vista.vistaBase;
+import vista.vistaDefault;
 import vista.vistaLogin;
 
 /**
@@ -20,11 +21,14 @@ public class controlLogin implements ActionListener{
     
     vistaLogin vista;
     private ModeloLogin modelo;
-    
-    public controlLogin(vistaLogin vista, ModeloLogin modelo)
+    private vistaBase base; 
+    private vistaDefault vdefault; 
+    public controlLogin(vistaLogin vista, ModeloLogin modelo,vistaBase base,vistaDefault vdefault)
     {
         this.vista=vista;
         this.modelo = modelo;
+        this.base=base; 
+        this.vdefault=vdefault; 
         this.vista.entrar.addActionListener(this);
         this.vista.texto_usuario.addActionListener(this);
         this.vista.texto_contraseña.addActionListener(this);
@@ -46,14 +50,15 @@ public class controlLogin implements ActionListener{
             String [] resultado = new String [2];
             resultado = modelo.ingresar(usu, contra);
             if(resultado[0].equals("1")) {
-                    vistaBase vistaBase = new vistaBase();
-                    controlBase controlBase = new controlBase(vistaBase, Integer.parseInt(resultado[1]));
-                    controlBase.iniciarVista();
-                    vistaBase.btnAbonos.setEnabled(true);
-                    vistaBase.btnCargos.setEnabled(true);
-                    vistaBase.btnCliente.setEnabled(true);
-                    vistaBase.btnEmpleados.setEnabled(true);
-                    vistaBase.btnRegalo.setEnabled(true);
+//                    vistaBase vistaBase = new vistaBase();
+//                    controlBase controlBase = new controlBase(vistaBase, Integer.parseInt(resultado[1]));
+//                    controlBase.iniciarVista();
+                    CambiaPanel cambio = new CambiaPanel(base.panelBase, this.vdefault);
+                    base.btnAbonos.setEnabled(true);
+                    base.btnCargos.setEnabled(true);
+                    base.btnCliente.setEnabled(true);
+                    base.btnEmpleados.setEnabled(true);
+                    base.btnRegalo.setEnabled(true);
             }
             else if(resultado[0].equals("3"))
             {
