@@ -25,7 +25,7 @@ public class modeloMovimientosCargo {
             //Para generar la consulta
             Statement s = con.createStatement();
             //Para establecer el modelo al JTable
-            DefaultTableModel modelo;
+            DefaultTableModel modelo=null;
             
             try{
                 //Ejecuta la consulta

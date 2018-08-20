@@ -32,9 +32,10 @@ public class controlCargos implements ActionListener, MouseListener, KeyListener
     
     private vistaCargos vista;
     private modeloCargos modelo;
-    private int puntosP=-1;
     private String idS = "1", idE="1"; 
+    
     private String idI;
+    private int puntosP=-1, cantP;
     
     
     public controlCargos(vistaCargos vista, modeloCargos modelo)
@@ -48,13 +49,17 @@ public class controlCargos implements ActionListener, MouseListener, KeyListener
     }
     public void iniciarVista()
     {
+        vista.lblSucursalN.setText(idS);
         Date fecha = new Date();   
         this.vista.setVisible(true);
         //Fecha y hora
         vista.lblFecha.setText(new SimpleDateFormat("dd/MM/yyyy").format(fecha));
-        //vista.lblFecha.setText(new SimpleDateFormat("dd/MM/yyyy").format(fecha));
         Hora hora =  new Hora(vista.lblHora);
         //Productos
+        tabla();
+    }
+
+    public void tabla(){
         DefaultTableModel model=modelo.productosConsultar(idS);
         if(model!=null){
             vista.tabla.setModel(model);
@@ -63,19 +68,11 @@ public class controlCargos implements ActionListener, MouseListener, KeyListener
             vista.tabla.getTableHeader().getColumnModel().getColumn(3).setMaxWidth(0);
             vista.tabla.getTableHeader().getColumnModel().getColumn(3).setMinWidth(0);
         }
-        else
+        else{
             JOptionPane.showMessageDialog(null, "No se han encontrado productos", "¡Atención!", JOptionPane.ERROR_MESSAGE);
+        }
     }
     
-    public void limpiarCajasTexto(){
-        vista.txtCliente.setText("");
-        vista.lblSucursalN.setText("");
-        vista.lblPuntosN.setText("");
-        vista.lblProductoN.setText("");
-        puntosP=-1;
-        idI="";
-    }
-
     public String formatoFecha(String fecha){
         System.out.println("");
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
@@ -86,7 +83,6 @@ public class controlCargos implements ActionListener, MouseListener, KeyListener
             Logger.getLogger(controlCargos.class.getName()).log(Level.SEVERE, null, ex);
         }
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        System.out.println("a: "+sdf.format(dates));
         return sdf.format(dates);
     }
     
@@ -100,13 +96,22 @@ public class controlCargos implements ActionListener, MouseListener, KeyListener
                 if(puntosP==-1){
                     JOptionPane.showMessageDialog(null, "Seleccione el premio a canjear", "¡Atención!", JOptionPane.ERROR_MESSAGE);
                 }else{
-                    if(puntosP<puntos){
-                        if(modelo.hacerCargo(formatoFecha(vista.lblFecha.getText()), vista.txtCliente.getText(), idE, idI, puntosP)){
-                            JOptionPane.showMessageDialog(null, "Se ha guardado el cargo correctamente", "¡Atención!", JOptionPane.ERROR_MESSAGE);
-                        }
-                    }else
-                    {
+                    if(puntosP>puntos){
                         JOptionPane.showMessageDialog(null, "Los puntos no son suficientes para canjear ese producto", "¡Atención!", JOptionPane.ERROR_MESSAGE);
+                    }else{
+                        if(cantP==0){
+                            JOptionPane.showMessageDialog(null, "No hay ese producto, escoge otro premio", "¡Atención!", JOptionPane.ERROR_MESSAGE);
+                        }else{
+                            if(modelo.hacerCargo(formatoFecha(vista.lblFecha.getText()), vista.txtCliente.getText(), idE, idI, puntosP)){
+                                JOptionPane.showMessageDialog(null, "Se ha guardado el cargo correctamente", "¡Atención!", JOptionPane.INFORMATION_MESSAGE);
+                                String [] p = modelo.puntosAcumulados(vista.txtCliente.getText());
+                                vista.lblPuntosN.setText(p[2]);
+                                puntosP=-1;
+                                idI="";
+                                vista.lblProductoN.setText("");
+                                tabla();
+                            }
+                        }
                     }
                 }
                
@@ -129,6 +134,7 @@ public class controlCargos implements ActionListener, MouseListener, KeyListener
                 vista.lblProductoN.setText(String.valueOf(vista.tabla.getValueAt(fila, 1)));
                 puntosP = Integer.parseInt(String.valueOf(vista.tabla.getValueAt(fila, 2)));
                 idI = String.valueOf(vista.tabla.getValueAt(fila, 3));
+                cantP = Integer.parseInt(String.valueOf(vista.tabla.getValueAt(fila, 4)));
             }
         }
     }
