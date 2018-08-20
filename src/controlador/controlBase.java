@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.modeloAbonos;
 import modelo.modeloCargos;
+import modelo.modeloCliente;
 import modelo.modeloPremios;
 import vista.vistaAbonos;
 import vista.vistaBase;
@@ -73,7 +74,8 @@ public class controlBase implements ActionListener{
         if(vista.btnCliente == e.getSource())
         {
             CambiaPanel cambio = new CambiaPanel(vista.panelBase, vistaClientes);
-            controlClientes controlClientes = new controlClientes(vistaClientes);
+            modeloCliente modelo = new modeloCliente(); 
+            controlClientes controlClientes = new controlClientes(vistaClientes,modelo);
             controlClientes.iniciarVista();
         }
         if(vista.btnRegalo == e.getSource())
