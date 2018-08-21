@@ -33,7 +33,7 @@ public class ConexionBD {
             
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, "No se pudo abrir la conexión con la BD.");
-            if (JOptionPane.showConfirmDialog(vista,"¿Desea cambiar de servidor?", "Libreria",
+            if (JOptionPane.showConfirmDialog(vista,"¿Desea cambiar de servidor?", "Monedero",
             JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION)
             {
                elegirsucursal vistasu = new elegirsucursal();
