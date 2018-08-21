@@ -41,21 +41,22 @@ public class modeloPremios {
             //luego genero la consulta para traer el id del premio para guardar datos en la tabla de inventario
             Statement s = con.createStatement();
             //En este variable se guarda la consulta y que es de tipo result set
-            ResultSet sql = s.executeQuery("select idPremios from premios where Nombre = '"+nombre+"'");
+            ResultSet sql = s.executeQuery("select idPremios from premios where Nombre = '"+nombre+"';");
             //este se usa para recorrer toda la consulta
             int idPremio = 0;
             while(sql.next())
             {
                 //Lo adquirido de la consukta se pasa a una variable de tipo string llamada captura
                 idPremio = sql.getInt(1);
+                System.out.println("idpremio: "+idPremio);
             }
             
-            //genero el insert en la tabla inventario
+//            //genero el insert en la tabla inventario
             String insertarInventario="insert into inventario (Premios_idPremios, Sucursal_idSucursal, cantidad) values("+idPremio+", "+sucursal+", "+cantidad+");";
             transaccionInventario = con.prepareStatement(insertarInventario);
             int r2=transaccionInventario.executeUpdate(); 
             
-            if(r1 == 0 || r2 ==0)
+            if(r1 == 0 /*|| r2 ==0*/)
                     throw new SQLException("Error al insertar el producto");
            
             con.commit();

@@ -68,16 +68,16 @@ public class controlElegirSucursal implements ActionListener{
             if(guardar == valor1)
             {
                 //Fabiola master 1
-                ip = "192.168.43.27";
+                ip = "192.168.43.252";
             }
             else if(guardar == valor2)
             {   //Itzel master 2
-                ip = "192.168.43.115";
+                ip = "192.168.43.141";
             }
             else if(guardar == valor3)
-            {   //Jesus master 3
+            {   //Esme master 3
                 //ip = "192.168.63.12";
-                ip = "192.168.43.254";
+                ip = "192.168.43.50";
             }
             //JOptionPane.showMessageDialog(null, "La ip es: " + ip);
             
@@ -86,14 +86,18 @@ public class controlElegirSucursal implements ActionListener{
 //            vista.panel_elegir.repaint();
             if (bandera != 1)
             {  
-                vista.setVisible(false);
-                vistaBase base = new vistaBase(); 
+                vistaBase vista = new vistaBase();
+                vistaLogin vistaLogin = new vistaLogin();
                 vistaDefault vdefault = new vistaDefault(); 
-                vistaLogin lo = new vistaLogin();
-//              modelologin mode = new modelologin();
-                ModeloLogin modelologin = new ModeloLogin();
-                controlLogin control2 = new controlLogin(lo,modelologin,base,vdefault);
-                control2.iniciarVista();
+                controlBase control = new controlBase(vista, 0);
+                ModeloLogin modelo = new ModeloLogin();
+
+
+                controlLogin controlLogin = new controlLogin(vistaLogin, modelo, vista,vdefault);
+
+                control.iniciarVista();
+                CambiaPanel cambio = new CambiaPanel(vista.panelBase, vistaLogin);
+                controlLogin.iniciarVista();
             }  
             else 
                 vista.setVisible(false);

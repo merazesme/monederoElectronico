@@ -21,7 +21,7 @@ public class ModeloLogin {
     public String[] ingresar(String usu, String contra)
     {
         String[] capturar= new String [3];
-        capturar[0]="3";
+        capturar[0]="0";
         capturar[1]="";
         
         int control=0;
@@ -59,11 +59,11 @@ public class ModeloLogin {
         }
         catch (SQLException ex)
         {
-           JOptionPane.showMessageDialog(null, "Error al intentar conectar con la base de datos.");
+//           JOptionPane.showMessageDialog(null, "Error al intentar conectar con la base de datos.");
         }
          catch(NullPointerException e){
              //Arroja un mensaje 
-            JOptionPane.showMessageDialog(null, "Error al intentar conectar con el servidor.");
+//            JOptionPane.showMessageDialog(null, "Error al intentar conectar con el servidor.");
         }
         return capturar;
     }

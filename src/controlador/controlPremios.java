@@ -21,14 +21,12 @@ public class controlPremios implements ActionListener, MouseListener{
     
     vistaPremios vista;
     modeloPremios modelo;
-    int sucursal;
     int idPremio;
     
     public controlPremios(vistaPremios vista, modeloPremios modelo, int sucursal)
     {
         this.vista=vista;
         this.modelo=modelo;
-        this.sucursal=sucursal;
         this.vista.btnanadir.addActionListener(this);
         this.vista.btnModificar.addActionListener(this);
         this.vista.btnEliminar.addActionListener(this);
@@ -50,10 +48,10 @@ public class controlPremios implements ActionListener, MouseListener{
             {
                 if((Integer) this.vista.spnCantidad.getValue() <= 0)
                     throw new Exception();
-                if(modelo.transaccionAgregar(this.vista.txtNombre.getText(), Integer.parseInt(this.vista.txtPuntos.getText()), (Integer) this.vista.spnCantidad.getValue(), sucursal))
+                if(modelo.transaccionAgregar(this.vista.txtNombre.getText(), Integer.parseInt(this.vista.txtPuntos.getText()), (Integer) this.vista.spnCantidad.getValue(), (Integer.parseInt(controlLogin.empleado[1]))))
                 {
                     JOptionPane.showMessageDialog(null, "Se ha registrado corectamente el producto");
-                    this.vista.tablaPremios.setModel(modelo.mostrarRegistrosTabla(sucursal));
+                    this.vista.tablaPremios.setModel(modelo.mostrarRegistrosTabla((Integer.parseInt(controlLogin.empleado[1]))));
                 }
                     
                 
@@ -68,10 +66,10 @@ public class controlPremios implements ActionListener, MouseListener{
             {
                 if((Integer) this.vista.spnCantidad.getValue() <= 0)
                     throw new Exception();
-                if(modelo.transaccionModificar(this.vista.txtNombre.getText(), Integer.parseInt(this.vista.txtPuntos.getText()), (Integer) this.vista.spnCantidad.getValue(), sucursal, idPremio))
+                if(modelo.transaccionModificar(this.vista.txtNombre.getText(), Integer.parseInt(this.vista.txtPuntos.getText()), (Integer) this.vista.spnCantidad.getValue(), (Integer.parseInt(controlLogin.empleado[1])), idPremio))
                 {
                     JOptionPane.showMessageDialog(null, "Se ha modificado correctamente el producto");
-                    this.vista.tablaPremios.setModel(modelo.mostrarRegistrosTabla(sucursal));
+                    this.vista.tablaPremios.setModel(modelo.mostrarRegistrosTabla((Integer.parseInt(controlLogin.empleado[1]))));
                 }
                     
                 
@@ -93,7 +91,7 @@ public class controlPremios implements ActionListener, MouseListener{
                         if(modelo.transaccionEliminar(idPremio))
                         {
                             JOptionPane.showMessageDialog(null, "Se ha eliminado correctamente el producto");
-                            this.vista.tablaPremios.setModel(modelo.mostrarRegistrosTabla(sucursal));
+                            this.vista.tablaPremios.setModel(modelo.mostrarRegistrosTabla((Integer.parseInt(controlLogin.empleado[1]))));
                         }
                         break;
                 }

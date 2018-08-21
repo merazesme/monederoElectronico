@@ -25,6 +25,7 @@ public class modeloAbonos {
     public boolean insertarAbono(String fecha, int puntos, Double importe, int idTicket, int idCliente, int idEmpleado) 
     {  
         PreparedStatement sentencia1 = null;
+        PreparedStatement sentencia2 = null;
         int idC=0;
         int idA=0;
         
@@ -60,9 +61,12 @@ public class modeloAbonos {
                     + "Importe, idTicket, Cliente_idCliente, Empleado_idEmpleado) "
                     + "VALUES (NULL, '"+fecha+"', '"+puntos+"', '"+importe+"', '"+idTicket+"', "
                     + "'"+idCliente+"', '"+idEmpleado+"');");
+            //agregar punto
+            sentencia2=con.prepareStatement("update cliente set Puntos = Puntos + "+puntos+" where idCliente = "+idCliente+";");
             
             int s1=sentencia1.executeUpdate(); 
-            if(s1==0)
+            int s2=sentencia2.executeUpdate(); 
+            if(s1==0 || s2==0)
                     throw new SQLException("Error al generar abono");
            
             con.commit();
