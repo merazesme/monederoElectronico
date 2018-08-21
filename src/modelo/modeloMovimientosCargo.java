@@ -64,4 +64,31 @@ public class modeloMovimientosCargo {
              return null;
         }
     }
+    
+    public String[] nombreCliente(String id){   
+       try
+        {
+            //abrir conexión
+            Connection con= conexion.abrirConexion(); 
+            //generar consultas
+            Statement s = con.createStatement(); 
+            //consulta
+            ResultSet rs = s.executeQuery("SELECT `Nombre`, `Apellidos` FROM `cliente` WHERE `idCliente` = " + id + ";");
+        
+            //declaración del array
+            String [] a = new String [3];
+            rs.next();
+            //copiar del resultset al array
+            a[0] = rs.getString(1);
+            a[1] = rs.getString(2);
+
+            //cerrar conexión
+            conexion.cerrarConexion(con); 
+            return a; 
+        }
+        catch(SQLException e)
+        {
+          return null;    
+        }
+    }
 }

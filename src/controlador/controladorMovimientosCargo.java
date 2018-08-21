@@ -33,7 +33,8 @@ public class controladorMovimientosCargo implements ActionListener, KeyListener{
         this.vista.txtCliente.addKeyListener(this);
     }
 
-    public void iniciarvista(){
+    public void iniciarvista()
+    {
         this.vista.setVisible(true);
         this.vista.setLocationRelativeTo(null);
         if(!vCargos.txtCliente.getText().equals("")){
@@ -62,14 +63,21 @@ public class controladorMovimientosCargo implements ActionListener, KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if(e.getSource() == vista.txtCliente){
-            if(e.getKeyCode() == KeyEvent.VK_ENTER){
-                if(!vista.txtCliente.getText().equals("")){
+        if(e.getSource() == vista.txtCliente)
+        {
+            if(e.getKeyCode() == KeyEvent.VK_ENTER)
+            {
+                if(!vista.txtCliente.getText().equals(""))
+                {
                     DefaultTableModel model=modelo.productosConsultar(vista.txtCliente.getText());
-                    if(model!=null){
+                    String [] p = modelo.nombreCliente(vista.txtCliente.getText());
+                    if(model!=null)
+                    {
                         vista.tabla.setModel(model);
+                        vista.lblClienteN.setText(p[0]+" "+p[1]);
                     }
-                    else{
+                    else
+                    {
                         JOptionPane.showMessageDialog(null, "No se han encontrado movimientos", "¡Atención!", JOptionPane.ERROR_MESSAGE);
                     }
                 }

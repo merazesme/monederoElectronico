@@ -18,9 +18,9 @@ import javax.swing.JOptionPane;
 public class ModeloLogin {
     private ConexionBD conexion = new ConexionBD();
       
-      public String[] ingresar(String usu, String contra)
+    public String[] ingresar(String usu, String contra)
     {
-        String[] capturar= new String [2];
+        String[] capturar= new String [3];
         capturar[0]="3";
         capturar[1]="";
         
@@ -37,6 +37,7 @@ public class ModeloLogin {
                 //Lo adquirido de la consukta se pasa a una variable de tipo string llamada captura
                 capturar[0] = sql.getString("Tipo");
                 capturar[1] = sql.getString("Sucursal_idSucursal");
+                capturar[2] = sql.getString("idEmpleado");
             }
             //Se compara el tipo de usuario
             if(capturar[0].equals("Empleado"))

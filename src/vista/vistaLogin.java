@@ -29,8 +29,6 @@ public class vistaLogin extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -40,6 +38,9 @@ public class vistaLogin extends javax.swing.JPanel {
         jSeparator5 = new javax.swing.JSeparator();
         entrar = new javax.swing.JButton();
         texto_contraseña = new javax.swing.JPasswordField();
+        fecha = new javax.swing.JLabel();
+        hora = new javax.swing.JLabel();
+        lblFecha1 = new javax.swing.JLabel();
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(524, 419));
@@ -51,16 +52,6 @@ public class vistaLogin extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Sucursal no. #");
-
-        jLabel11.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel11.setText("Fecha: dd/mm/yyyy ");
-
-        jLabel13.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel13.setText("Hora: 00:00");
 
         jLabel1.setFont(new java.awt.Font("Candara", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 153, 153));
@@ -92,12 +83,27 @@ public class vistaLogin extends javax.swing.JPanel {
         entrar.setText("Entrar");
         entrar.setBorderPainted(false);
         entrar.setContentAreaFilled(false);
-        entrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        entrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         entrar.setDefaultCapable(false);
         entrar.setFocusPainted(false);
         entrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Enter_35px.png"))); // NOI18N
 
         texto_contraseña.setBorder(null);
+
+        fecha.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        fecha.setForeground(new java.awt.Color(102, 102, 102));
+        fecha.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        fecha.setText("dd/mm/yyyy ");
+
+        hora.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        hora.setForeground(new java.awt.Color(102, 102, 102));
+        hora.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        hora.setText("Hora: 00:00");
+
+        lblFecha1.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        lblFecha1.setForeground(new java.awt.Color(102, 102, 102));
+        lblFecha1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblFecha1.setText("Fecha: ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -108,10 +114,12 @@ public class vistaLogin extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblFecha1)
+                        .addGap(2, 2, 2)
+                        .addComponent(fecha)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 362, Short.MAX_VALUE)
+                        .addComponent(hora, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -139,10 +147,13 @@ public class vistaLogin extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(hora, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblFecha1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(37, 37, 37)
@@ -179,9 +190,9 @@ public class vistaLogin extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton entrar;
+    public javax.swing.JLabel fecha;
+    public javax.swing.JLabel hora;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -189,6 +200,7 @@ public class vistaLogin extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    public javax.swing.JLabel lblFecha1;
     public javax.swing.JPasswordField texto_contraseña;
     public javax.swing.JTextField texto_usuario;
     // End of variables declaration//GEN-END:variables
