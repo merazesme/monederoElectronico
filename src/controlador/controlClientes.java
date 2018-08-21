@@ -81,7 +81,7 @@ public class controlClientes implements ActionListener{
                 fecha=vista.DateNacimineto.getCalendar().get(Calendar.YEAR)+"-"+mes+"-"+vista.DateNacimineto.getCalendar().get(Calendar.DAY_OF_MONTH); 
                 int inserta = modelo.agregarCliente(vista.txtNombre.getText(), vista.txtApellidos.getText(), vista.txtCorreo.getText(), vista.txtTelefono.getText(), fecha, vista.txtDireccion.getText(), genero, edad); 
                 if(inserta >= 0)
-                {   JOptionPane.showMessageDialog(null, "Registro agregado exitosamente\n       ID del cliente: "+inserta);
+                {   JOptionPane.showMessageDialog(null, "Registro agregado exitosamente\n           ID del cliente: "+inserta);
                     limpiar(); 
                 }
                 else

@@ -3,15 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ITZEL/Documents/Upsin/6-Cuatrimestre/BD%20Distribuidas/monederoElectronico/src/controlador/controlElegirSucursal.java</file>
-            <file>file:/C:/Users/ITZEL/Documents/Upsin/6-Cuatrimestre/BD%20Distribuidas/monederoElectronico/src/modelo/ConexionBD.java</file>
-            <file>file:/C:/Users/ITZEL/Documents/Upsin/6-Cuatrimestre/BD%20Distribuidas/monederoElectronico/src/modelo/modeloMovimientosCargo.java</file>
-            <file>file:/C:/Users/ITZEL/Documents/Upsin/6-Cuatrimestre/BD%20Distribuidas/monederoElectronico/src/controlador/controlLogin.java</file>
-            <file>file:/C:/Users/ITZEL/Documents/Upsin/6-Cuatrimestre/BD%20Distribuidas/monederoElectronico/src/controlador/controlPremios.java</file>
-            <file>file:/C:/Users/ITZEL/Documents/Upsin/6-Cuatrimestre/BD%20Distribuidas/monederoElectronico/src/controlador/controlClientes.java</file>
-            <file>file:/C:/Users/ITZEL/Documents/Upsin/6-Cuatrimestre/BD%20Distribuidas/monederoElectronico/src/controlador/controlCargos.java</file>
-            <file>file:/C:/Users/ITZEL/Documents/Upsin/6-Cuatrimestre/BD%20Distribuidas/monederoElectronico/src/controlador/controladorMovimientosCargo.java</file>
-            <file>file:/C:/Users/ITZEL/Documents/Upsin/6-Cuatrimestre/BD%20Distribuidas/monederoElectronico/src/vista/vistaMovimientosCargo.java</file>
+            <file>file:/C:/Users/Fabiola%20Paez/Documents/NetBeansProjects/monederoElectronico/src/modelo/modeloCliente.java</file>
+            <file>file:/C:/Users/Fabiola%20Paez/Documents/NetBeansProjects/monederoElectronico/src/controlador/controlClientes.java</file>
+            <file>file:/C:/Users/Fabiola%20Paez/Documents/NetBeansProjects/monederoElectronico/src/controlador/controlLogin.java</file>
+            <file>file:/C:/Users/Fabiola%20Paez/Documents/NetBeansProjects/monederoElectronico/src/monederoelectronico/MonederoElectronico.java</file>
+            <file>file:/C:/Users/Fabiola%20Paez/Documents/NetBeansProjects/monederoElectronico/src/modelo/ConexionBD.java</file>
         </group>
     </open-files>
 </project-private>
