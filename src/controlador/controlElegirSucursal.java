@@ -10,7 +10,8 @@ import java.awt.event.ActionListener;
 import modelo.ModeloLogin;
 import vista.elegirsucursal;
 import vista.vistaLogin;
-
+import vista.vistaDefault; 
+import vista.vistaBase; 
 /**
  *
  * @author ITZEL
@@ -86,10 +87,12 @@ public class controlElegirSucursal implements ActionListener{
             if (bandera != 1)
             {  
                 vista.setVisible(false);
+                vistaBase base = new vistaBase(); 
+                vistaDefault vdefault = new vistaDefault(); 
                 vistaLogin lo = new vistaLogin();
 //              modelologin mode = new modelologin();
                 ModeloLogin modelologin = new ModeloLogin();
-                controlLogin control2 = new controlLogin(lo,modelologin);
+                controlLogin control2 = new controlLogin(lo,modelologin,base,vdefault);
                 control2.iniciarVista();
             }  
             else 

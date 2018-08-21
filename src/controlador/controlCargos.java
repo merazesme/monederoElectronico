@@ -32,7 +32,7 @@ public class controlCargos implements ActionListener, MouseListener, KeyListener
     
     private vistaCargos vista;
     private modeloCargos modelo;
-    private String idS = "1", idE="1"; 
+    private String idS = controlLogin.empleado[1], idE=controlLogin.empleado[2]; 
     
     private String idI;
     private int puntosP=-1, cantP;
