@@ -178,7 +178,8 @@ public class vistaClientes extends javax.swing.JPanel {
 
         btnSaldo.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
         btnSaldo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Bounced_Check_45px.png"))); // NOI18N
-        btnSaldo.setText("Saldo");
+        btnSaldo.setText("Puntos");
+        btnSaldo.setToolTipText("");
         btnSaldo.setBorderPainted(false);
         btnSaldo.setContentAreaFilled(false);
         btnSaldo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -186,6 +187,11 @@ public class vistaClientes extends javax.swing.JPanel {
         btnSaldo.setFocusPainted(false);
         btnSaldo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnSaldo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Bounced_Check_40px.png"))); // NOI18N
+        btnSaldo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaldoActionPerformed(evt);
+            }
+        });
 
         btnAgregar.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Add_User_Group_Man_Woman_45px.png"))); // NOI18N
@@ -347,6 +353,10 @@ public class vistaClientes extends javax.swing.JPanel {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaldoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSaldoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

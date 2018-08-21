@@ -7,6 +7,8 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,17 +17,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.modeloAbonos;
+import modelo.modeloMovimientosAbono;
 import vista.vistaAbonos;
 import vista.vistaCargos;
+import vista.vistaMovimientosCargo;
 
 /**
  *
  * @author Holi
  */
-public class controlAbonos implements ActionListener{
+public class controlAbonos implements ActionListener {
     modeloAbonos modelo;
     vistaAbonos vista;
-    int idEmpleado=1;
+    String idEmpleado= controlLogin.empleado[2];
     
     public controlAbonos(vistaAbonos vista, modeloAbonos modelo)
     {
@@ -35,6 +39,7 @@ public class controlAbonos implements ActionListener{
         this.vista.btn_Movimientos.addActionListener(this);
         this.vista.txt_Importe.addActionListener(this);
         this.vista.txt_NumTicket.addActionListener(this);
+        this.vista.txt_Numcliente.addActionListener(this);
     }
     public void iniciarVista()
     {
@@ -69,9 +74,9 @@ public class controlAbonos implements ActionListener{
 	}
     }
     
-    public static boolean ValidarNumeros(String NumTicket, String NumCliente){
+    public static boolean ValidarNumeros(String NumCliente, String NumTicket) {
 	try {
-		Integer.parseInt(NumTicket);
+                Integer.parseInt(NumTicket);
                 Integer.parseInt(NumCliente);
 		return true;
 	} catch (NumberFormatException e){
@@ -96,44 +101,64 @@ public class controlAbonos implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         double importe=0.0;
         double puntos=0.0;
+        //Validacion al ingresar Importe
         if(vista.txt_Importe == e.getSource()) 
         {
-            if(ValidarImporte(vista.txt_Importe.getText())==true) {
-                importe = Double.parseDouble(vista.txt_Importe.getText());
-                puntos = importe*0.10;
-                int entero = (int)puntos;
-                vista.jlb_Puntos.setText(String.valueOf(entero));
+            try {
+                if(ValidarImporte(vista.txt_Importe.getText())==true) {
+                    importe = Double.parseDouble(vista.txt_Importe.getText());
+                    puntos = importe*0.10;
+                    int entero = (int)puntos;
+                    vista.jlb_Puntos.setText(String.valueOf(entero));
+                }
+                else {
+                    vista.txt_Importe.setText("");
+                    vista.jlb_Puntos.setText("");
+                    JOptionPane.showMessageDialog(null, "Solo números");
+                }
             }
-            else {
-                vista.txt_Importe.setText("");
-                vista.jlb_Puntos.setText("");
-                JOptionPane.showMessageDialog(null, "Solo números");
-            }
+            catch(Exception ex) {
+                JOptionPane.showMessageDialog(null, "Error en al generar puntos");
+            } 
         }
+        //Boton Abonar
         if(vista.btn_Abonar == e.getSource())
         {  
-            if(validacionCamposVacios()==null)
-            {  
-                if(ValidarNumeros(vista.txt_NumTicket.getText(), vista.txt_Numcliente.getText()) == true) {
-                    if(modelo.insertarAbono(formatoFecha(vista.fecha.getText()), 
-                    Integer.parseInt(vista.jlb_Puntos.getText()),
-                    Double.parseDouble(vista.txt_Importe.getText()), 
-                    Integer.parseInt(vista.txt_NumTicket.getText()), 
-                    Integer.parseInt(vista.txt_Numcliente.getText()), 
-                    idEmpleado)) {
-                        JOptionPane.showMessageDialog(null, "Abono realizo exitosamente");
-                        limpiar();
+            try {
+                if(validacionCamposVacios()==null)
+                {  
+                    if(ValidarNumeros(vista.txt_NumTicket.getText(), vista.txt_Numcliente.getText())==true) {
+                        if(modelo.insertarAbono(formatoFecha(vista.fecha.getText()), 
+                        Integer.parseInt(vista.jlb_Puntos.getText()),
+                        Double.parseDouble(vista.txt_Importe.getText()), 
+                        Integer.parseInt(vista.txt_NumTicket.getText()), 
+                        Integer.parseInt(vista.txt_Numcliente.getText()), 
+                        Integer.parseInt(idEmpleado))) {
+                            JOptionPane.showMessageDialog(null, "Abono realizo exitosamente");
+                            limpiar();
+                        }
                     }
+                    else
+                        JOptionPane.showMessageDialog(null, "Favor de ingresar puros numeros");
                 }
-                else
-                    JOptionPane.showMessageDialog(null, "Favor de ingresar numeros");
-            }
             else
                JOptionPane.showMessageDialog(null, ""+validacionCamposVacios());
+            } catch(Exception ex) {
+                JOptionPane.showMessageDialog(null, "Error en el proceso de abonar");
+            }
         }
+        //Boton Movimientos
         if(vista.btn_Movimientos == e.getSource())
         {  
-            JOptionPane.showMessageDialog(null, "Holis");
+            try {
+                modeloMovimientosAbono m = new modeloMovimientosAbono();
+            vistaMovimientosCargo v = new vistaMovimientosCargo();
+            controlMovimientosAbono c = new controlMovimientosAbono(v, m);
+            c.iniciarVista(); 
+            }
+            catch(Exception ex) {
+                JOptionPane.showMessageDialog(null, "No se puedo abrir movimientos");
+            }
         }
     }
 }

@@ -9,9 +9,11 @@ import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -30,6 +32,7 @@ public class modeloAbonos {
         try {
             con = conexion.abrirConexion();
             con.setAutoCommit(false);
+            
             Statement s = con.createStatement();
             ResultSet rs;
             
@@ -41,8 +44,8 @@ public class modeloAbonos {
                 idC=rs.getInt (1);
             }
             if(idC==0)
-                    throw new SQLException("No existe cliente");
-            
+                    throw new SQLException("No existe usuario");
+
             //Compara si ya existe abono
             rs = s.executeQuery("SELECT idTicket FROM abono WHERE idTicket="+idTicket+";"); 
             while (rs.next())
@@ -50,8 +53,8 @@ public class modeloAbonos {
                 idA=rs.getInt (1);
             }
             if(idA==idTicket)
-                    throw new SQLException("Ya existe abono");
-            
+                    throw new SQLException("Ya existe ticket");      
+
             //Agrega abono
             sentencia1 = con.prepareStatement("INSERT INTO abono (idAbono, Fecha, Punto, "
                     + "Importe, idTicket, Cliente_idCliente, Empleado_idEmpleado) "
@@ -59,7 +62,7 @@ public class modeloAbonos {
                     + "'"+idCliente+"', '"+idEmpleado+"');");
             
             int s1=sentencia1.executeUpdate(); 
-            if(s1==1)
+            if(s1==0)
                     throw new SQLException("Error al generar abono");
            
             con.commit();
