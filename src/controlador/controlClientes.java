@@ -13,6 +13,7 @@ import vista.vistaClientes;
 import modelo.modeloCliente; 
 import modelo.modeloSaldo; 
 import modelo.modeloMovimientosCargo;
+import vista.vistaMovimientos;
 import vista.vistaMovimientosCargo;
 
 /**
@@ -40,7 +41,7 @@ public class controlClientes implements ActionListener{
         this.vista.btnSaldo.addActionListener(this);
         this.vista.RadioBtnFemenino.addActionListener(this);
         this.vista.RadioBtnMasculino.addActionListener(this);
-        System.out.println("Año: "+anioActual);
+       // System.out.println("Año: "+anioActual);
     }
     public void limpiar()
     {   this.vista.txtNombre.setText("");
@@ -91,15 +92,15 @@ public class controlClientes implements ActionListener{
         else if(vista.btnMovimientos == e.getSource())
         {
             modeloMovimientosCargo m = new modeloMovimientosCargo();
-            vistaMovimientosCargo v = new vistaMovimientosCargo();
+            vistaMovimientos v = new vistaMovimientos();
             controlMovimientosCliente c = new controlMovimientosCliente(v, m);
             c.iniciarvista(); 
         }
         else if(vista.btnSaldo == e.getSource())
         {
             vistaMovimientosCargo vistaFrame = new vistaMovimientosCargo(); 
-            modeloSaldo modelo = new modeloSaldo(); 
-            controlSaldo control = new controlSaldo(vistaFrame,modelo); 
+            modeloSaldo modelos = new modeloSaldo(); 
+            controlSaldo control = new controlSaldo(vistaFrame,modelos); 
             control.iniciarVista();
         }
     }

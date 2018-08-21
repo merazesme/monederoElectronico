@@ -94,7 +94,7 @@ public class controlLogin implements ActionListener{
                     base.btnRegalo.setEnabled(true);
                     this.vista.setVisible(false);
 
-                JOptionPane.showMessageDialog(null,"USUARIO/CONTRASEÑA INCORRECTOS");
+//                JOptionPane.showMessageDialog(null,"USUARIO/CONTRASEÑA INCORRECTOS");
             }
         }
     }

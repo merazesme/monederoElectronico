@@ -30,9 +30,10 @@ public class controlSaldo implements ActionListener, KeyListener,MouseListener{
         this.vista.tabla.addMouseListener(this);
     }
     public void iniciarVista() // Muestra la vista 
-    {   this.vista.tabla.setModel(modelo.saldoConsultar()); 
+    {   
         this.vista.setVisible(true);
         this.vista.setLocationRelativeTo(null);
+        this.vista.tabla.setModel(modelo.saldoConsultar()); 
     }
     @Override
     public void actionPerformed(ActionEvent e) {
