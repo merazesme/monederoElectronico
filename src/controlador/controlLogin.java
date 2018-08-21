@@ -7,6 +7,8 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import modelo.ModeloLogin;
 import vista.vistaBase;
@@ -39,6 +41,10 @@ public class controlLogin implements ActionListener{
     public void iniciarVista()
     {
         this.vista.setVisible(true);
+        Date fecha = new Date(); 
+        //Fecha y hora
+        vista.fecha.setText(new SimpleDateFormat("dd/MM/yyyy").format(fecha));
+        Hora hora =  new Hora(vista.hora);
     }
 
     @Override
@@ -63,6 +69,18 @@ public class controlLogin implements ActionListener{
             }
             else if(empleado[0].equals("3"))
             {
+//                    vistaBase vistaBase = new vistaBase();
+//                    controlBase controlBase = new controlBase(vistaBase);
+//                    controlBase.iniciarVista();
+                    
+                    CambiaPanel cambio = new CambiaPanel(base.panelBase, this.vdefault);
+                    base.btnAbonos.setEnabled(true);
+                    base.btnCargos.setEnabled(true);
+                    base.btnCliente.setEnabled(true);
+                    base.btnEmpleados.setEnabled(true);
+                    base.btnRegalo.setEnabled(true);
+                    this.vista.setVisible(false);
+
                 JOptionPane.showMessageDialog(null,"USUARIO/CONTRASEÑA INCORRECTOS");
             }
         }

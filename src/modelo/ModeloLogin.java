@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 public class ModeloLogin {
     private ConexionBD conexion = new ConexionBD();
       
-      public String[] ingresar(String usu, String contra)
+    public String[] ingresar(String usu, String contra)
     {
         String[] capturar= new String [3];
         capturar[0]="3";
