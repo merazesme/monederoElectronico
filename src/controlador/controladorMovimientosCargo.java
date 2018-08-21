@@ -70,13 +70,8 @@ public class controladorMovimientosCargo implements ActionListener, KeyListener{
                 if(!vista.txtCliente.getText().equals(""))
                 {
                     DefaultTableModel model=modelo.productosConsultar(vista.txtCliente.getText());
-<<<<<<< HEAD
                     String [] p = modelo.nombreCliente(vista.txtCliente.getText());
                     if(model!=null){
-=======
-                    if(model!=null)
-                    {
->>>>>>> b86eab3e155a9c8b00ded260149c9c4b46672b41
                         vista.tabla.setModel(model);
                         vista.lblClienteN.setText(p[0]+" "+p[1]);
                     }
