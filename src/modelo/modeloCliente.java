@@ -6,6 +6,8 @@
 package modelo;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -15,19 +17,23 @@ import java.sql.Statement;
  */
 public class modeloCliente {
     private ConexionBD conexion= new ConexionBD();
-    public boolean agregarCliente(String nombre, String apellidos, String correo, String telefono, String fecha, String direccion, String genero, int edad) 
+    public int agregarCliente(String nombre, String apellidos, String correo, String telefono, String fecha, String direccion, int genero, int edad) 
     {  
         try
-        {   Connection con= conexion.abrirConexion(); 
-            Statement s= con.createStatement(); 
-            int registro =s.executeUpdate("insert into cliente(Nombre, Apellidos, Puntos, Email, Direccion, Sexo, Telefono, FechaNac, Edad)"
+        {   int id=-2; 
+            Connection con= conexion.abrirConexion(); 
+            PreparedStatement s=con.prepareStatement("insert into cliente(Nombre, Apellidos, Puntos, Email, Direccion, Sexo, Telefono, FechaNac, Edad)"
                                          + "values('"+nombre+"','"+apellidos+"',0,'"+correo+"','"+direccion+"','"+genero+"','"+telefono+"','"+fecha+"',"+edad+");"
-            ); 
+            ,PreparedStatement.RETURN_GENERATED_KEYS); 
+            s.executeUpdate(); 
+            ResultSet generatedKeys = s.getGeneratedKeys();
+            if (generatedKeys.next())
+                id = generatedKeys.getInt(1);
             conexion.cerrarConexion(con); 
-            return true; 
+            return id; 
         }
         catch(SQLException e)
-        {   return false;    
+        {   return -1;    
         }
     }
 }

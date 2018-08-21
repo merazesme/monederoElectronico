@@ -9,9 +9,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
-import vista.vistaCargos;
 import vista.vistaClientes;
 import modelo.modeloCliente; 
+import modelo.modeloSaldo; 
+import modelo.modeloMovimientosCargo;
+import vista.vistaMovimientosCargo;
+
 /**
  *
  * @author Holi
@@ -19,6 +22,8 @@ import modelo.modeloCliente;
 public class controlClientes implements ActionListener{
     private vistaClientes vista;
     private modeloCliente modelo; 
+    int genero=0; 
+    String fecha=""; 
     //Permite acceder a funciones de la fecha.
     Calendar calendario = Calendar.getInstance();
     //Agarra el año en curso.
@@ -35,6 +40,7 @@ public class controlClientes implements ActionListener{
         this.vista.btnSaldo.addActionListener(this);
         this.vista.RadioBtnFemenino.addActionListener(this);
         this.vista.RadioBtnMasculino.addActionListener(this);
+        System.out.println("Año: "+anioActual);
     }
     public void limpiar()
     {   this.vista.txtNombre.setText("");
@@ -49,36 +55,52 @@ public class controlClientes implements ActionListener{
     {
         this.vista.setVisible(true);
     }
-
+     public String validacionCamposVacios() // Valida que los campos no esten vacios
+    {   if(vista.txtNombre.getText().isEmpty() || vista.txtApellidos.getText().isEmpty()
+            || vista.txtTelefono.getText().isEmpty() || vista.txtDireccion.getText().isEmpty()
+            || vista.txtCorreo.getText().isEmpty() || genero ==0 )
+            return "Favor de llenar todos los campos"; 
+        else 
+            return null;
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
         if(vista.btnAgregar == e.getSource())
-        {   
-            int mes=vista.DateNacimineto.getCalendar().get(Calendar.MONTH)+1; 
-            String genero=""; 
-            if(vista.RadioBtnFemenino.isSelected())
-                genero="femenino";
-            else if(vista.RadioBtnMasculino.isSelected())
-                genero="masculino"; 
-            int edad=anioActual-vista.DateNacimineto.getCalendar().get(Calendar.YEAR); 
-            if(mes>=mesActual && vista.DateNacimineto.getCalendar().get(Calendar.DAY_OF_MONTH)>=diaActual)
-                edad-=1;
-            String fecha=vista.DateNacimineto.getCalendar().get(Calendar.YEAR)+"-"+mes+"-"+vista.DateNacimineto.getCalendar().get(Calendar.DAY_OF_MONTH); 
-            System.out.println("Nombre: "+vista.txtNombre.getText()
-                    +"\nApellidos: "+vista.txtApellidos.getText()
-                    +"\nCorreo: "+vista.txtCorreo.getText()
-                    +"\nTelefono: "+vista.txtTelefono.getText()
-                    +"\nDireccion: "+vista.txtDireccion.getText()
-                    +"\nFecha: "+fecha
-                    +"\nGenero: "+genero
-                    +"\nEdad: "+edad
-            );
-            if(modelo.agregarCliente(vista.txtNombre.getText(), vista.txtApellidos.getText(), vista.txtCorreo.getText(), vista.txtTelefono.getText(), fecha, vista.txtDireccion.getText(), genero, edad))
-            {   JOptionPane.showMessageDialog(null, "Registro agregado exitosamente");
-                limpiar(); 
+        {   if(validacionCamposVacios()==null)
+            {
+                int mes=vista.DateNacimineto.getCalendar().get(Calendar.MONTH)+1; 
+                if(vista.RadioBtnFemenino.isSelected())
+                    genero=1;
+                else if(vista.RadioBtnMasculino.isSelected())
+                    genero=2; 
+                int edad=anioActual-vista.DateNacimineto.getCalendar().get(Calendar.YEAR); 
+                if(mes>=mesActual && vista.DateNacimineto.getCalendar().get(Calendar.DAY_OF_MONTH)>=diaActual)
+                    edad-=1;
+                fecha=vista.DateNacimineto.getCalendar().get(Calendar.YEAR)+"-"+mes+"-"+vista.DateNacimineto.getCalendar().get(Calendar.DAY_OF_MONTH); 
+                int inserta = modelo.agregarCliente(vista.txtNombre.getText(), vista.txtApellidos.getText(), vista.txtCorreo.getText(), vista.txtTelefono.getText(), fecha, vista.txtDireccion.getText(), genero, edad); 
+                if(inserta >= 0)
+                {   JOptionPane.showMessageDialog(null, "Registro agregado exitosamente\n       ID del cliente: "+inserta);
+                    limpiar(); 
+                }
+                else
+                    JOptionPane.showMessageDialog(null, "Error al insertar los datos");
             }
-            else
-                JOptionPane.showMessageDialog(null, "Error al insertar los datos");
+            else 
+                JOptionPane.showMessageDialog(null, ""+validacionCamposVacios());
+        }
+        else if(vista.btnMovimientos == e.getSource())
+        {
+            modeloMovimientosCargo m = new modeloMovimientosCargo();
+            vistaMovimientosCargo v = new vistaMovimientosCargo();
+            controlMovimientosCliente c = new controlMovimientosCliente(v, m);
+            c.iniciarvista(); 
+        }
+        else if(vista.btnSaldo == e.getSource())
+        {
+            vistaMovimientosCargo vistaFrame = new vistaMovimientosCargo(); 
+            modeloSaldo modelo = new modeloSaldo(); 
+            controlSaldo control = new controlSaldo(vistaFrame,modelo); 
+            control.iniciarVista();
         }
     }
 }
