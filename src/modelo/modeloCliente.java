@@ -22,8 +22,8 @@ public class modeloCliente {
         try
         {   int id=-2; 
             Connection con= conexion.abrirConexion(); 
-            PreparedStatement s=con.prepareStatement("insert into cliente(Nombre, Apellidos, Puntos, Email, Direccion, Sexo, Telefono, FechaNac, Edad)"
-                                         + "values('"+nombre+"','"+apellidos+"',0,'"+correo+"','"+direccion+"','"+genero+"','"+telefono+"','"+fecha+"',"+edad+");"
+            PreparedStatement s=con.prepareStatement("insert into cliente(Nombre, Apellidos, Puntos, Email, Direccion, Sexo, Telefono)"
+                                         + "values('"+nombre+"','"+apellidos+"',0,'"+correo+"','"+direccion+"','"+genero+"','"+telefono+"');"
             ,PreparedStatement.RETURN_GENERATED_KEYS); 
             s.executeUpdate(); 
             ResultSet generatedKeys = s.getGeneratedKeys();
