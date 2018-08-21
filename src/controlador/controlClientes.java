@@ -41,6 +41,7 @@ public class controlClientes implements ActionListener{
         this.vista.btnSaldo.addActionListener(this);
         this.vista.RadioBtnFemenino.addActionListener(this);
         this.vista.RadioBtnMasculino.addActionListener(this);
+        vista.lblSucursal.setText("Sucursal no."+controlLogin.empleado[1]);
        // System.out.println("Año: "+anioActual);
     }
     public void limpiar()

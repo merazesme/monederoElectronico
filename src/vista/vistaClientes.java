@@ -30,7 +30,7 @@ public class vistaClientes extends javax.swing.JPanel {
         Genero = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblSucursal = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         btnMovimientos = new javax.swing.JButton();
@@ -67,10 +67,10 @@ public class vistaClientes extends javax.swing.JPanel {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("Nombre");
 
-        jLabel3.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("Sucursal no. #");
+        lblSucursal.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        lblSucursal.setForeground(new java.awt.Color(102, 102, 102));
+        lblSucursal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblSucursal.setText("Sucursal no. #");
 
         txtNombre.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(51, 51, 51));
@@ -216,7 +216,7 @@ public class vistaClientes extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -261,7 +261,7 @@ public class vistaClientes extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -369,7 +369,6 @@ public class vistaClientes extends javax.swing.JPanel {
     public javax.swing.JButton btnSaldo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -382,6 +381,7 @@ public class vistaClientes extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
+    public javax.swing.JLabel lblSucursal;
     public javax.swing.JTextField txtApellidos;
     public javax.swing.JTextField txtCorreo;
     public javax.swing.JTextField txtDireccion;

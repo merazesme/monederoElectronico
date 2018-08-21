@@ -33,7 +33,6 @@ public class vistaBase extends javax.swing.JFrame {
         btnCargos = new javax.swing.JButton();
         btnAbonos = new javax.swing.JButton();
         btnCliente = new javax.swing.JButton();
-        btnEmpleados = new javax.swing.JButton();
         btnRegalo = new javax.swing.JButton();
         panelBase = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -50,6 +49,7 @@ public class vistaBase extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 114));
 
         btnCargos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Withdrawal_Limit_50px.png"))); // NOI18N
+        btnCargos.setToolTipText("Cargos");
         btnCargos.setBorderPainted(false);
         btnCargos.setContentAreaFilled(false);
         btnCargos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -57,6 +57,7 @@ public class vistaBase extends javax.swing.JFrame {
         btnCargos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Withdrawal_Limit_45px.png"))); // NOI18N
 
         btnAbonos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Request_Money_50px_1.png"))); // NOI18N
+        btnAbonos.setToolTipText("Abonos");
         btnAbonos.setBorderPainted(false);
         btnAbonos.setContentAreaFilled(false);
         btnAbonos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -64,20 +65,15 @@ public class vistaBase extends javax.swing.JFrame {
         btnAbonos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Request_Money_45px.png"))); // NOI18N
 
         btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Customer_50px.png"))); // NOI18N
+        btnCliente.setToolTipText("Clientes");
         btnCliente.setBorderPainted(false);
         btnCliente.setContentAreaFilled(false);
         btnCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCliente.setFocusPainted(false);
         btnCliente.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Customer_45px.png"))); // NOI18N
 
-        btnEmpleados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Name_Tag_50px.png"))); // NOI18N
-        btnEmpleados.setBorderPainted(false);
-        btnEmpleados.setContentAreaFilled(false);
-        btnEmpleados.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnEmpleados.setFocusPainted(false);
-        btnEmpleados.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Name_Tag_45px.png"))); // NOI18N
-
         btnRegalo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8_Product_50px.png"))); // NOI18N
+        btnRegalo.setToolTipText("Premios");
         btnRegalo.setBorderPainted(false);
         btnRegalo.setContentAreaFilled(false);
         btnRegalo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -91,13 +87,11 @@ public class vistaBase extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(btnCargos)
-                .addGap(78, 78, 78)
+                .addGap(132, 132, 132)
                 .addComponent(btnAbonos)
-                .addGap(78, 78, 78)
+                .addGap(148, 148, 148)
                 .addComponent(btnCliente)
-                .addGap(78, 78, 78)
-                .addComponent(btnEmpleados)
-                .addGap(78, 78, 78)
+                .addGap(114, 114, 114)
                 .addComponent(btnRegalo)
                 .addGap(50, 50, 50))
         );
@@ -106,7 +100,6 @@ public class vistaBase extends javax.swing.JFrame {
             .addComponent(btnCargos)
             .addComponent(btnAbonos)
             .addComponent(btnCliente)
-            .addComponent(btnEmpleados)
             .addComponent(btnRegalo)
         );
 
@@ -228,7 +221,6 @@ public class vistaBase extends javax.swing.JFrame {
     public javax.swing.JButton btnAbonos;
     public javax.swing.JButton btnCargos;
     public javax.swing.JButton btnCliente;
-    public javax.swing.JButton btnEmpleados;
     public javax.swing.JButton btnRegalo;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

@@ -65,7 +65,7 @@ public class controlLogin implements ActionListener{
                     base.btnAbonos.setEnabled(true);
                     base.btnCargos.setEnabled(true);
                     base.btnCliente.setEnabled(true);
-                    base.btnEmpleados.setEnabled(true);
+                    //base.btnEmpleados.setEnabled(true);
                     base.btnRegalo.setEnabled(true);
 
             }
