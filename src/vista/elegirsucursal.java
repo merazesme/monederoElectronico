@@ -38,7 +38,6 @@ public class elegirsucursal extends javax.swing.JFrame {
 
         panel_elegir.setBackground(new java.awt.Color(255, 255, 255));
 
-        botonaceptar.setBackground(new java.awt.Color(255, 255, 114));
         botonaceptar.setText("Aceptar");
 
         combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SUR", "NORTE", "CENTRO" }));
@@ -46,7 +45,7 @@ public class elegirsucursal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         jLabel2.setText("Elige:");
 
-        jPanel1.setBackground(new java.awt.Color(123, 124, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 114));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

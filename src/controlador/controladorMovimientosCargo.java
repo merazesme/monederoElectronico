@@ -66,8 +66,10 @@ public class controladorMovimientosCargo implements ActionListener, KeyListener{
             if(e.getKeyCode() == KeyEvent.VK_ENTER){
                 if(!vista.txtCliente.getText().equals("")){
                     DefaultTableModel model=modelo.productosConsultar(vista.txtCliente.getText());
+                    String [] p = modelo.nombreCliente(vista.txtCliente.getText());
                     if(model!=null){
                         vista.tabla.setModel(model);
+                        vista.lblClienteN.setText(p[0]+" "+p[1]);
                     }
                     else{
                         JOptionPane.showMessageDialog(null, "No se han encontrado movimientos", "¡Atención!", JOptionPane.ERROR_MESSAGE);

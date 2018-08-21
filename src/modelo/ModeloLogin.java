@@ -20,7 +20,7 @@ public class ModeloLogin {
       
       public String[] ingresar(String usu, String contra)
     {
-        String[] capturar= new String [2];
+        String[] capturar= new String [3];
         capturar[0]="3";
         capturar[1]="";
         
