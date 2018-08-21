@@ -40,7 +40,7 @@ public class controlBase implements ActionListener{
         this.vista.btnCargos.addActionListener(this);
         this.vista.btnAbonos.addActionListener(this);
         this.vista.btnCliente.addActionListener(this);
-        this.vista.btnEmpleados.addActionListener(this);
+        //this.vista.btnEmpleados.addActionListener(this);
         this.vista.btnRegalo.addActionListener(this);
     }
     
@@ -51,7 +51,7 @@ public class controlBase implements ActionListener{
         this.vista.btnAbonos.setEnabled(false);
         this.vista.btnCargos.setEnabled(false);
         this.vista.btnCliente.setEnabled(false);
-        this.vista.btnEmpleados.setEnabled(false);
+        //this.vista.btnEmpleados.setEnabled(false);
         this.vista.btnRegalo.setEnabled(false);
     }
     @Override
@@ -85,12 +85,12 @@ public class controlBase implements ActionListener{
             controlPremios controlPremios = new controlPremios(vistaPremios, modeloPremios,sucursal);
             controlPremios.iniciarVista();
         }
-        if(vista.btnEmpleados == e.getSource())
-        {
-            CambiaPanel cambio = new CambiaPanel(vista.panelBase, vistaEmpleados);
-            controlEmpleados controlEmpleados = new controlEmpleados(vistaEmpleados);
-            controlEmpleados.iniciarVista();
-        }
+//        if(vista.btnEmpleados == e.getSource())
+//        {
+//            CambiaPanel cambio = new CambiaPanel(vista.panelBase, vistaEmpleados);
+//            controlEmpleados controlEmpleados = new controlEmpleados(vistaEmpleados);
+//            controlEmpleados.iniciarVista();
+//        }
     }
     
 }

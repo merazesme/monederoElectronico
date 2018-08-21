@@ -7,8 +7,6 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -49,6 +47,7 @@ public class controlAbonos implements ActionListener {
         //Fecha y hora
         vista.fecha.setText(new SimpleDateFormat("dd/MM/yyyy").format(fecha));
         Hora hora =  new Hora(vista.hora);
+        vista.lblSucursal.setText("Sucursal no."+controlLogin.empleado[1]);
     }
     
     public void limpiar()

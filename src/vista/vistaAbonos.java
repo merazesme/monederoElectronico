@@ -29,7 +29,7 @@ public class vistaAbonos extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblSucursal = new javax.swing.JLabel();
         txt_Importe = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         btn_Abonar = new javax.swing.JButton();
@@ -58,10 +58,10 @@ public class vistaAbonos extends javax.swing.JPanel {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("Número de cliente");
 
-        jLabel3.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("Sucursal no. #");
+        lblSucursal.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        lblSucursal.setForeground(new java.awt.Color(102, 102, 102));
+        lblSucursal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblSucursal.setText("Sucursal no. #");
 
         txt_Importe.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         txt_Importe.setForeground(new java.awt.Color(51, 51, 51));
@@ -183,7 +183,7 @@ public class vistaAbonos extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(hora, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(144, 144, 144)
@@ -198,7 +198,7 @@ public class vistaAbonos extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -269,13 +269,13 @@ public class vistaAbonos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     public javax.swing.JLabel jlb_Puntos;
     public javax.swing.JLabel lblFecha1;
+    public javax.swing.JLabel lblSucursal;
     public javax.swing.JTextField txt_Importe;
     public javax.swing.JTextField txt_NumTicket;
     public javax.swing.JTextField txt_Numcliente;
