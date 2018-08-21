@@ -55,11 +55,6 @@ public class controlLogin implements ActionListener{
         
         if(this.vista.entrar == e.getSource() || this.vista.texto_usuario == e.getSource() || vista.texto_contraseña == e.getSource())
         {
-
-//            String [] resultado = new String [2];
-//            resultado = modelo.ingresar(usu, contra);
-//            if(resultado[0].equals("1")) {
-
             empleado = modelo.ingresar(usu, contra);
             if(empleado[0].equals("1")) {
 
@@ -73,28 +68,10 @@ public class controlLogin implements ActionListener{
                     base.btnEmpleados.setEnabled(true);
                     base.btnRegalo.setEnabled(true);
 
-////            }
-//            else if(resultado[0].equals("3"))
-//            {
-//                JOptionPane.showMessageDialog(null,"USUARIO/CONTRASEÑA INCORRECTOS");
-//            }
-
             }
             else if(empleado[0].equals("3"))
             {
-//                    vistaBase vistaBase = new vistaBase();
-//                    controlBase controlBase = new controlBase(vistaBase);
-//                    controlBase.iniciarVista();
-                    
-                    CambiaPanel cambio = new CambiaPanel(base.panelBase, this.vdefault);
-                    base.btnAbonos.setEnabled(true);
-                    base.btnCargos.setEnabled(true);
-                    base.btnCliente.setEnabled(true);
-                    base.btnEmpleados.setEnabled(true);
-                    base.btnRegalo.setEnabled(true);
-                    this.vista.setVisible(false);
-
-//                JOptionPane.showMessageDialog(null,"USUARIO/CONTRASEÑA INCORRECTOS");
+                JOptionPane.showMessageDialog(null,"USUARIO/CONTRASEÑA INCORRECTOS");
             }
         }
     }

@@ -25,6 +25,7 @@ public class ConexionBD {
         try{
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             //con = DriverManager.getConnection("jdbc:mysql://localhost/biblioteca", "root", "");
+            controlElegirSucursal.setIp("localhost");
             if (controlElegirSucursal.ip != "localhost")
             con = DriverManager.getConnection("jdbc:mysql://"+controlElegirSucursal.ip+":3306/monedero", "root", "123456");
             else 
