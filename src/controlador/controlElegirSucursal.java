@@ -67,17 +67,17 @@ public class controlElegirSucursal implements ActionListener{
             guardar = vista.combo.getSelectedItem().toString();
             if(guardar == valor1)
             {
-                //Fabiola master 2
-                ip = "192.168.43.65";
+                //Fabiola master 1
+                ip = "192.168.43.27";
             }
             else if(guardar == valor2)
-            {   //Esmeralda master 3
-                ip = "192.168.43.12";
+            {   //Itzel master 2
+                ip = "192.168.43.115";
             }
             else if(guardar == valor3)
-            {   //Itzel master 1
+            {   //Jesus master 3
                 //ip = "192.168.63.12";
-                ip = "192.168.43.141";
+                ip = "192.168.43.254";
             }
             //JOptionPane.showMessageDialog(null, "La ip es: " + ip);
             
