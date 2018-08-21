@@ -67,8 +67,9 @@ public class controlClientes implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(vista.btnAgregar == e.getSource())
-        {   if(validacionCamposVacios()==null)
-            {
+        {   
+//            if(validacionCamposVacios()==null)
+//            {
                 int mes=vista.DateNacimineto.getCalendar().get(Calendar.MONTH)+1; 
                 if(vista.RadioBtnFemenino.isSelected())
                     genero=1;
@@ -85,9 +86,9 @@ public class controlClientes implements ActionListener{
                 }
                 else
                     JOptionPane.showMessageDialog(null, "Error al insertar los datos");
-            }
-            else 
-                JOptionPane.showMessageDialog(null, ""+validacionCamposVacios());
+//            }
+//            else 
+//                JOptionPane.showMessageDialog(null, ""+validacionCamposVacios());
         }
         else if(vista.btnMovimientos == e.getSource())
         {
