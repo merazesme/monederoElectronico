@@ -13,17 +13,17 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.modeloMovimientosCargo;
 import vista.vistaCargos;
-import vista.vistaMovimientosCargo;
+import vista.vistaMovimientos;
 
 /**
  *
  * @author Fabiola Paez
  */
 public class controlMovimientosCliente implements ActionListener, KeyListener{
-    private vistaMovimientosCargo vista;
+    private vistaMovimientos vista;
     private modeloMovimientosCargo modelo;
-    
-    public controlMovimientosCliente(vistaMovimientosCargo vista, modeloMovimientosCargo modelo)
+    String tipo; 
+    public controlMovimientosCliente(vistaMovimientos vista, modeloMovimientosCargo modelo)
     {
         this.vista=vista;
         this.modelo=modelo;
@@ -33,7 +33,7 @@ public class controlMovimientosCliente implements ActionListener, KeyListener{
 
     public void iniciarvista(){
         this.vista.setVisible(true);
-        this.vista.setLocationRelativeTo(null);     
+        this.vista.setLocationRelativeTo(null); 
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -51,7 +51,12 @@ public class controlMovimientosCliente implements ActionListener, KeyListener{
         if(e.getSource() == vista.txtCliente){
             if(e.getKeyCode() == KeyEvent.VK_ENTER){
                 if(!vista.txtCliente.getText().equals("")){
-                    DefaultTableModel model=modelo.productosConsultar(vista.txtCliente.getText());
+                    tipo=vista.tipoT.getSelectedItem().toString(); 
+                    DefaultTableModel model; 
+                    if(tipo == "Cargos")
+                        model=modelo.clienteCargos(vista.txtCliente.getText());
+                    else 
+                        model=modelo.clienteAbonos(vista.txtCliente.getText());
                     if(model!=null){
                         vista.tabla.setModel(model);
                     }

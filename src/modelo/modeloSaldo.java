@@ -19,7 +19,8 @@ import javax.swing.table.DefaultTableModel;
 public class modeloSaldo {
     ConexionBD conexion = new ConexionBD();
     public DefaultTableModel saldoConsultar()
-    {   try
+    {   
+        try
         {   // para abrir conexion a la BD 
             Connection con = conexion.abrirConexion(); 
             // para generar consultas 
@@ -27,7 +28,7 @@ public class modeloSaldo {
             // para establecer el modelo al jtable 
             DefaultTableModel modelo;
             try
-            {   ResultSet rs = s.executeQuery("SELECT idCliente as ID , Nombre, Apellidos, Puntos, Email, Direccion, Sexo, Telefono, FechaNac as 'Fecha de nacimiento', Edad FROM cliente;"); 
+            {   ResultSet rs = s.executeQuery("select idCliente as ID , Nombre, Apellidos, Puntos, Email, Direccion, Sexo, Telefono from cliente;"); 
                 // para establecer el modelo al jtable 
                 modelo= new DefaultTableModel(); 
                 // obteniendo la informacion de las columnas que esta siendo consultadas 
@@ -60,7 +61,7 @@ public class modeloSaldo {
             Statement s = con.createStatement();
             DefaultTableModel modelo = new DefaultTableModel();
             try
-            {   ResultSet rs = s.executeQuery("SELECT idCliente as ID , Nombre, Apellidos, Puntos, Email, Direccion, Sexo, Telefono, FechaNac as 'Fecha de nacimiento', Edad FROM cliente WHERE "
+            {   ResultSet rs = s.executeQuery("SELECT idCliente as ID , Nombre, Apellidos, Puntos, Email, Direccion, Sexo, Telefono FROM cliente WHERE "
                     + "idCliente LIKE '%"+buscar+"%'"
                     + "OR Nombre LIKE '%"+buscar+"%';"); 
                 ResultSetMetaData rsMd = rs.getMetaData();

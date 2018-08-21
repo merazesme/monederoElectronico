@@ -37,8 +37,8 @@ public class controlPremios implements ActionListener, MouseListener{
     public void iniciarVista()
     {
         this.vista.setVisible(true);
-        this.vista.tablaPremios.setModel(modelo.mostrarRegistrosTabla(sucursal));
-        this.vista.lblSucursal.setText("Sucursal no. "+sucursal);
+        this.vista.tablaPremios.setModel(modelo.mostrarRegistrosTabla(Integer.parseInt(controlLogin.empleado[1])));
+        this.vista.lblSucursal.setText("Sucursal no. "+controlLogin.empleado[1]);
     }
 
     @Override
